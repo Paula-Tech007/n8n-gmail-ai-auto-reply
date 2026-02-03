@@ -1,134 +1,78 @@
-# 🤖 Gmail AI Auto-Reply Bot (n8n + Google Gemini)
+# 🤖 Automação de Resposta de E-mails com IA (n8n + Gmail)
 
-Automação criada no **n8n** que monitora novos e-mails no Gmail e responde automaticamente usando um **agente de IA (Google Gemini)**, com memória de conversa por thread.  
-Ideal para atendimento inicial, respostas a dúvidas frequentes e automação de pré-vendas.
+Este projeto implementa uma automação inteligente utilizando **n8n** para leitura, análise e geração de respostas automáticas a e-mails do Gmail com apoio de **Inteligência Artificial**.
 
----
-
-## ✨ Funcionalidades
-
-- 📥 Escuta novos e-mails via **Gmail Trigger**
-- 🧠 Geração de respostas automáticas com **IA (Google Gemini)**
-- 💬 Memória de contexto por thread (conversas contínuas)
-- 📤 Resposta automática ao remetente
-- 🧹 Filtro para ignorar domínios específicos (ex: e-mails internos)
-- 🧩 Workflow modular e fácil de adaptar
+O objetivo é demonstrar o uso de **automação de processos**, **integração com APIs** e **IA aplicada**, simulando um cenário real de ganho de produtividade e redução de tarefas repetitivas.
 
 ---
 
-## 🧱 Arquitetura do Workflow
+## 🚀 Funcionalidades
 
-Fluxo principal:
-
-Gmail Trigger → IF (filtro de remetente) → AI Agent (Gemini + Memory) → Reply to Message (Gmail)
-
-Componentes:
-- **Gmail Trigger**: detecta novos e-mails
-- **IF**: filtra remetentes (ex: ignora domínio específico)
-- **AI Agent (LangChain)**: gera a resposta
-- **Google Gemini Chat Model**: modelo de IA
-- **Simple Memory**: memória por threadId
-- **Gmail (Reply)**: envia a resposta
+- Leitura automática de e-mails recebidos no Gmail  
+- Análise do conteúdo do e-mail utilizando IA  
+- Geração de respostas automáticas ou rascunhos inteligentes  
+- Fluxo de decisão baseado no tipo de mensagem  
+- Automação criada inteiramente no **n8n**
 
 ---
 
-## 🚀 Como rodar o projeto localmente
+## 🛠️ Tecnologias Utilizadas
 
-### 1️⃣ Pré-requisitos
-
-- Conta no **n8n** (cloud ou self-hosted)
-- Conta Google com acesso ao **Gmail API**
-- Chave de API do **Google Gemini**
-
----
-
-### 2️⃣ Importar o Workflow no n8n
-
-1. Abra o n8n
-2. Clique em **Import workflow**
-3. Selecione o arquivo `gmail-ai-auto-reply.json.json`
+- **n8n** – Automação de workflows  
+- **Inteligência Artificial** – Análise e geração de respostas  
+- **Gmail API** – Integração com e-mails  
+- **JSON / HTTP Requests** – Comunicação entre serviços  
 
 ---
 
-### 3️⃣ Configurar Credenciais
+## 📌 Caso de Uso
 
-Após importar, o n8n vai pedir:
+Este tipo de automação pode ser aplicado em:
 
-- 🔐 **Gmail OAuth2**
-- 🔐 **Google Gemini API Key**
+- Atendimento ao cliente  
+- Respostas automáticas para mensagens recorrentes  
+- Triagem e classificação de e-mails  
+- Suporte administrativo e operacional  
 
-> ⚠️ As credenciais não estão no repositório por segurança.
-
----
-
-### 4️⃣ Ajustar Regras de Filtro (Opcional)
-
-No nó **IF**, você pode configurar:
-- Domínios a ignorar (ex: `@suaempresa.com`)
-- Regras para responder apenas a certos remetentes
+O fluxo reduz o tempo gasto com respostas manuais e aumenta a eficiência do processo.
 
 ---
 
-### 5️⃣ Ativar o Workflow
+## 📂 Estrutura do Projeto
 
-Depois de configurar tudo:
-- Clique em **Activate**
-- O bot passa a responder automaticamente os novos e-mails 🎉
-
----
-
-## 📝 Observações
-
-- O workflow pode ser expandido para outros modelos de IA ou integrações.
-- Recomenda-se revisar as respostas automáticas antes de uso em produção.
+- Workflow n8n configurado para:
+  - Captura de novos e-mails
+  - Processamento do conteúdo
+  - Geração de resposta automática com IA
+  - Envio ou criação de rascunho no Gmail
 
 ---
 
-## 📄 Licença
+## ▶️ Como Utilizar
 
-MIT
-
----
-
-## 🛡️ Segurança
-
-- Nenhuma credencial é versionada no repositório
-- O workflow foi sanitizado para uso público
-- Recomenda-se usar variáveis de ambiente para produção
+1. Instalar e configurar o **n8n**
+2. Conectar a conta do Gmail via credenciais da API
+3. Importar o workflow disponível neste repositório
+4. Ajustar as regras de automação conforme o cenário desejado
+5. Executar o fluxo e monitorar os resultados
 
 ---
 
-## 📁 Estrutura do Repositório
+## 📖 Aprendizados
 
-```
-gmail-ai-auto-reply.json.json   # Workflow n8n
-README.md                      # Documentação
-```
+Com este projeto, foi possível aprofundar conhecimentos em:
 
----
-
-## 🧪 Casos de uso
-
-- Atendimento inicial automático
-- Pré-vendas de cursos/produtos
-- Respostas a dúvidas frequentes
-- Suporte básico via e-mail
-- Prototipagem de agentes de IA
+- Automação de processos com n8n  
+- Integração de serviços via API  
+- Uso prático de IA em fluxos automatizados  
+- Estruturação de soluções voltadas para problemas reais  
 
 ---
 
-## 🧠 Melhorias Futuras (ideias)
+## 🔗 Autora
 
-- Classificação de e-mails por intenção
-- Integração com CRM
-- Base de conhecimento com RAG
-- Logs de conversas em banco de dados
-- Modo humano para handoff
+**Paula Sabino**  
+Estudante de Segurança Cibernética com foco em Inteligência Artificial e Automação  
 
----
-
-## 👨‍💻 Paula Sabino
-
-Projeto desenvolvido como demonstração de automação com IA e n8n para portfólio.
-
-Se quiser trocar uma ideia ou evoluir o projeto, bora! 🚀
+🔗 GitHub: https://github.com/Paula-Tech007  
+🔗 LinkedIn: https://www.linkedin.com/in/paula-sabino-49830573/
